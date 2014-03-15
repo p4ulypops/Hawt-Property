@@ -48,7 +48,7 @@ class Layout extends CI_Model {
     {
 		$data['data'] = $data;
 		$data['layout'] = $this->getDetails();
-		$thePage = $this->view($filename, $data, true); // Do this first so the elements build the header.
+		$thePage = $this->view($this->config->item('page_view').$filename, $data, true); // Do this first so the elements build the header.
 				
 		$theHead = $this->view($this->config->item('common_head'), $data, true);
 		$theFoot = $this->view($this->config->item('common_foot'), $data, true);

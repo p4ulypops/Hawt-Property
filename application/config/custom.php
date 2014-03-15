@@ -18,6 +18,7 @@ $config['css_base'] = "/assets/css/";
 $config['js_base'] = "/assets/js/";
 $config['img_base'] = "/assets/img/";
 $config['common_view'] = "/common/";
+$config['page_view'] = "/pages/";
 $config['common_head'] = $config['common_view']."head.php";
 $config['common_foot'] = $config['common_view']."foot.php";
 
