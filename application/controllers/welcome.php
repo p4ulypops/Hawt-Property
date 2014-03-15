@@ -19,6 +19,7 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
+		$this->layout->detail('page_title', "Page Title Test");
 		$this->layout->page('helloworld');
 	}
 }

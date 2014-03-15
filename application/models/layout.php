@@ -51,6 +51,7 @@ class Layout extends CI_Model {
     function page($filename, $data = array())
     {
 		$data['data'] = $data;
+		$data['layout'] = $this->getDetails();
     	$this->view("pages/".$filename, $data);
 	
 	}	
@@ -69,6 +70,10 @@ class Layout extends CI_Model {
 			}
 	}
 	
+	function getDetails() {
+		return $this->details;	
+		
+	}
 	//
 	// Use this to add JS/CSS to the queue. I've still got to code in the Order bit for JS.
 	//
