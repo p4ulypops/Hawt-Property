@@ -34,14 +34,27 @@ class Layout extends CI_Model {
 	// This is your main function to view a 'page'.
 	//
 	//
-    function view($filename, $data = array())
+    function view($filename, $data = array(), $returnme = false)
     {
 		$data['data'] = $data;
     	$thePage = $this->load->view($filename, $data, true);
 		$theHead = $this->load->view($this->config->item('common_head'), $data, true);
 		$theFoot = $this->load->view($this->config->item('common_foot'), $data, true);
-		echo $theHead.$thePage.$theFoot;
+		$output = $theHead.$thePage.$theFoot;
+		
+		if ($returnme) { return $output; } else { echo $output; }
 	}
+	//
+	// This is your main function to view a 'page'.
+	//
+	//
+    function page($filename, $data = array())
+    {
+		$data['data'] = $data;
+    	$this->view("page/".$filename, $data);
+	
+	}	
+	
 	
 	//
 	// Use this to set and get 'details', such as a page title or a H1 tag.
