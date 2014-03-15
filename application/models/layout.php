@@ -51,7 +51,7 @@ class Layout extends CI_Model {
     function page($filename, $data = array())
     {
 		$data['data'] = $data;
-    	$this->view("page/".$filename, $data);
+    	$this->view("pages/".$filename, $data);
 	
 	}	
 	
