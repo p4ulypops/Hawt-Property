@@ -56,7 +56,7 @@ if (defined('ENVIRONMENT'))
  * as this file.
  *
  */
-	$system_path = '/hp/system';
+	$system_path = '/hp/hp/system';
 
 /*
  *---------------------------------------------------------------
@@ -72,7 +72,7 @@ if (defined('ENVIRONMENT'))
  * NO TRAILING SLASH!
  *
  */
-	$application_folder = '/hp/application';
+	$application_folder = '/hp/hp/application';
 
 /*
  * --------------------------------------------------------------------
