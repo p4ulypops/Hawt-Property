@@ -14,7 +14,7 @@ class MY_Loader extends CI_Loader
 	
 	// Now you can use $_DATA to get all the view's vars.
 	function view($view, $vars = array(), $return = FALSE) {
-		
+		exit('hi');
 		$outputVars = $this->_ci_object_to_array($vars);
 		if (is_array($outputVars)) {
 			foreach($outputVars as $k => $v) {
