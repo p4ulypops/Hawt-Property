@@ -37,22 +37,26 @@ class Layout extends CI_Model {
     function view($filename, $data = array(), $returnme = false)
     {
 		$data['data'] = $data;
-    	$thePage = $this->load->view($filename, $data, true);
-		$theHead = $this->load->view($this->config->item('common_head'), $data, true);
-		$theFoot = $this->load->view($this->config->item('common_foot'), $data, true);
-		$output = $theHead.$thePage.$theFoot;
-		
-		if ($returnme) { return $output; } else { echo $output; }
+    	$theView = $this->load->view($filename, $data, true);
+		if ($returnme) { return $theView; } else { echo $theView; }
 	}
 	//
 	// This is your main function to view a 'page'.
 	//
 	//
-    function page($filename, $data = array())
+    function page($filename, $data = array(), $returnme = false)
     {
 		$data['data'] = $data;
 		$data['layout'] = $this->getDetails();
+		$thePage = $this->view($filename, $data, true); // Do this first so the elements build the header.
+				
+		$theHead = $this->view($this->config->item('common_head'), $data, true);
+		$theFoot = $this->view($this->config->item('common_foot'), $data, true);
+
+		$output = $theHead.$thePage.$theFoot;
+		
     	$this->view("pages/".$filename, $data);
+		if ($returnme) { return $output; } else { echo $output; }
 	
 	}	
 	

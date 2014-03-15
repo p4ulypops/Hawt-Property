@@ -21,8 +21,10 @@ class MY_Loader extends CI_Loader
 				$outputVars['_DATA'][$k] = $v;	
 			}
 		}
+		
 		return $this->_ci_load(array('_ci_view' => $view, '_ci_vars' => $outputVars, '_ci_return' => $return));
 	}
+	
 	
 	
 }
