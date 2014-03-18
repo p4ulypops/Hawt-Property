@@ -109,6 +109,7 @@ $config['enable_hooks'] = FALSE;
 $config['subclass_prefix'] = 'MY_';
 
 
+
 /*
 |--------------------------------------------------------------------------
 | Allowed URL Characters

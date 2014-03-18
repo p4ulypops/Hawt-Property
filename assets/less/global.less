@@ -1,0 +1,73 @@
+/* CSS Document */
+
+
+@desktop:   ~"only screen and (min-width: 960px) ";
+@tablet:    ~"only screen and (min-width: 720px) and (max-width: 959px)";
+@mobile: 	~"only screen and (max-width: 720px)";
+@smallscreen:		~"only screen and (max-width: 960px) ";
+@bigscreen: ~"only screen and (min-width: 720px)";
+
+@colorMain: #5fe252; /* 5fe252 */ 
+@colorSub: #f6f922;
+
+main {
+	background: #CCC;	
+}
+.myTitles() {
+	dispiay:inline-block;
+	background: #fff;
+	@media @desktop { border-left: 50px solid @colorMain; padding: 0 20px; font-size: 2em; span { font-size: 1.5em; }  }
+	@media @tablet { border-left: 25px solid @colorMain; padding: 0 20px; font-size: 1.5em; span { font-size: 1em; } }
+	@media @mobile { border-left: 15px solid @colorMain; padding: 0 20px; font-size: 1em; span { font-size: .5em; } }		
+}
+.myTitlesReverse() {
+	display:inline-block;
+	background: @colorMain;
+	@media @desktop { border-left: 50px solid #fff; padding: 0 20px; }
+	@media @tablet { border-left: 25px solid #fff; padding: 0 20px; }
+	@media @mobile { border-left: 15px solid #fff; padding: 0 20px; }		
+}
+.hideme { display:none; }
+	
+main, footer[role=main], header[role=main] {
+	.cf();	
+}
+
+.myWidths() {
+				@media @desktop { 
+					width: 66%;
+					max-width: 960px;
+					padding: 25px;
+				}
+				@media @tablet {
+					width: 75%;	
+					padding: 15px;
+				}
+				@media @mobile {
+					width: 90%;	
+					padding: 10px;
+				}	
+				
+				margin: 0px auto;
+}
+/* Clear Fix */
+.cf() {
+	
+	&:before, &:after{content:"";display:table;}
+	&:after{clear:both;}
+display:block;
+clear:both;
+	
+}
+
+.myButton() {
+	background :#000;
+	border: 0px;
+	color: @colorMain;
+	padding: 10px 25px;
+	&:hover {
+		color: @colorSub;	
+	}
+	
+	
+}

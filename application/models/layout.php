@@ -2,6 +2,7 @@
 
 
 class Layout extends CI_Model {
+	
 
     var $files   = array();
     var $details = array();
@@ -11,7 +12,7 @@ class Layout extends CI_Model {
         parent::__construct();
 		$this->files['js'] = array();
 		$this->files['css'] = array();
-		
+		$this->files['less'] = array();
 		$preloadedAssets = $this->config->item('alwaysAsset');
 		
 		// Load the CSS
@@ -26,7 +27,12 @@ class Layout extends CI_Model {
 				$this->info('js', $js['file'], $js['order']);	
 			}
 		}
-
+		// Load the LESS
+		if (isset($preloadedAssets['less']) && is_array($preloadedAssets['less'])) {
+			foreach($preloadedAssets['less'] as $js) {
+				$this->info('less', $js['file'], $js['order']);	
+			}
+		}
 		
     }
     
@@ -41,21 +47,38 @@ class Layout extends CI_Model {
 		if ($returnme) { return $theView; } else { echo $theView; }
 	}
 	//
+	//
+	// Common items - you always want to return because 
+	// the header is built after the body.... so if you echo
+	// then it'll appear above your <head> tag.
+	//
+	function common($filename, $data = array())
+    {
+		$data['data'] = $data;
+    	$theView = $this->load->view($this->config->item('common_view').$filename, $data, true);
+		return $theView; 
+		
+	}
+	
+	//
 	// This is your main function to view a 'page'.
 	//
 	//
+	
     function page($filename, $data = array(), $returnme = false)
     {
+
 		$data['data'] = $data;
-		$data['layout'] = $this->getDetails();
+		
 		$thePage = $this->view($this->config->item('page_view').$filename, $data, true); // Do this first so the elements build the header.
 				
 		$theHead = $this->view($this->config->item('common_head'), $data, true);
 		$theFoot = $this->view($this->config->item('common_foot'), $data, true);
 
+
 		$output = $theHead.$thePage.$theFoot;
 		
-    	$this->view("pages/".$filename, $data);
+    	//$this->view("pages/".$filename, $data);
 		if ($returnme) { return $output; } else { echo $output; }
 	
 	}	
@@ -74,10 +97,8 @@ class Layout extends CI_Model {
 			}
 	}
 	
-	function getDetails() {
-		return $this->details;	
-		
-	}
+	
+	
 	//
 	// Use this to add JS/CSS to the queue. I've still got to code in the Order bit for JS.
 	//
@@ -117,15 +138,27 @@ class Layout extends CI_Model {
 		}
 	// Sort them by the 'order' key.	
 		uasort($files_out, array($this, "_cmp"));
-	// Build the string	
+		$fileString = "";
 		foreach($files_out as $k => $v) {
-			if ($type == "js") {
-						$return .= '<script src="'.$this->config->item('js_base').$v['file'].'" data-order="'.$v['order'].'" /></script>'."\n";							
-			}
-			if ($type == "css") {
-					$return .= '<link rel="stylesheet" type="text/css" href="'.$this->config->item('css_base').$v['file'].'" data-order="'.$v['order'].'"  />'."\n";								
-			}
+		//	if ($type == "js") {
+						$fileString .= '----'.urlencode($v['file']);							
+		//	}
+		//	if ($type == "css") {
+		//			$return .= '<link rel="stylesheet" type="text/css" href="'.$this->config->item('css_base').$v['file'].'" data-order="'.$v['order'].'"  />'."\n";								
+		//	}
 		}
+		
+		// Build the string	
+		if ($type == "js" && ! empty($fileString)) {
+			$return = '<script src="/assets/js/'.$fileString.'"  /></script>'."\n";		
+		}
+		if ($type == "css" && ! empty($fileString)) {
+			$return .= '<link rel="stylesheet" type="text/css" href="/assets/css/'.$fileString.'"   />'."\n";
+		}
+		if ($type == "less" && ! empty($fileString)) {
+			$return .= '<link rel="stylesheet" type="text/css" href="/assets/less/'.$fileString.'"  />'."\n";
+		}		
+		
 	// Return the data
 		if (strlen($return) > 0) {
 			return $return;	

@@ -1,6 +1,6 @@
 <?
-	$this->layout->info('css', 'reset.css');
+//	$this->layout->info('css', 'reset.css');
 ?>
 <?
-	$this->layout->common('header');
+	//$this->layout->common('header'); 
 ?>

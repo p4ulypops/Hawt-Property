@@ -1,0 +1,16 @@
+[17-Mar-2014 14:08:04 UTC] PHP Fatal error:  Call to undefined method CI_DB_mysql_result::order_by() in /home/paulgd/hp/hp/application/models/myobject.php on line 44
+[17-Mar-2014 14:08:44 UTC] PHP Fatal error:  Call to undefined method CI_DB_mysql_result::order_by() in /home/paulgd/hp/hp/application/models/myobject.php on line 47
+[17-Mar-2014 15:56:39 UTC] PHP Fatal error:  Cannot redeclare class vote in /home/paulgd/hp/hp/application/models/vote.php on line 13
+[17-Mar-2014 15:56:51 UTC] PHP Fatal error:  Cannot redeclare class vote in /home/paulgd/hp/hp/application/models/vote.php on line 13
+[17-Mar-2014 15:57:05 UTC] PHP Fatal error:  Cannot redeclare class vote in /home/paulgd/hp/hp/application/models/vote.php on line 13
+[17-Mar-2014 15:57:14 UTC] PHP Fatal error:  Cannot redeclare class vote in /home/paulgd/hp/hp/application/models/vote.php on line 13
+[17-Mar-2014 15:57:26 UTC] PHP Fatal error:  Cannot redeclare class vote in /home/paulgd/hp/hp/application/models/vote.php on line 13
+[17-Mar-2014 15:57:32 UTC] PHP Fatal error:  Cannot redeclare class vote in /home/paulgd/hp/hp/application/models/vote.php on line 13
+[17-Mar-2014 15:58:34 UTC] PHP Fatal error:  Cannot redeclare class vote in /home/paulgd/hp/hp/application/models/vote.php on line 14
+[17-Mar-2014 15:59:22 UTC] PHP Fatal error:  Cannot redeclare class vote in /home/paulgd/hp/hp/application/models/vote.php on line 15
+[17-Mar-2014 15:59:30 UTC] PHP Fatal error:  Cannot redeclare class vote in /home/paulgd/hp/hp/application/models/vote.php on line 11
+[17-Mar-2014 22:51:27 UTC] PHP Fatal error:  Call to undefined method CI_Session::user() in /home/paulgd/hp/hp/application/views/common/zoopla-search-menu.php on line 4
+[17-Mar-2014 22:53:05 UTC] PHP Fatal error:  Call to undefined method CI_Session::user() in /home/paulgd/hp/hp/application/views/common/zoopla-search-menu.php on line 4
+[17-Mar-2014 22:54:32 UTC] PHP Fatal error:  Call to undefined method CI_Session::user() in /home/paulgd/hp/hp/application/views/common/zoopla-search-menu.php on line 4
+[17-Mar-2014 22:54:41 UTC] PHP Fatal error:  Call to undefined method CI_Session::user() in /home/paulgd/hp/hp/application/views/common/zoopla-search-menu.php on line 4
+[17-Mar-2014 22:54:49 UTC] PHP Fatal error:  Call to undefined method CI_Session::user() in /home/paulgd/hp/hp/application/views/common/zoopla-search-menu.php on line 4
