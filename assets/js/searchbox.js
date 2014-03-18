@@ -23,6 +23,19 @@ $(document).ready(function(e) {
 		}
 	});
 	
+	$("#searchClear").click(function() {
+		$.ajax({
+			  type: "POST",
+			  url: '/ajax/index/',
+			  data: {},
+			  success: function(data) { 
+					//var json = $.parseJSON(data);
+					console.log(data); 
+					window.location = '/';
+				}
+			});
+	});
+	
 	$('#searchParams').click(function() {
 		var theData = {};
 		$('#options').find('.optionBlock.opened').find('input, select').each(function(index, element) {

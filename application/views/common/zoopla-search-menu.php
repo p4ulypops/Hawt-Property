@@ -148,11 +148,11 @@
 
 
 
- <span class="optionBlock <?=(isset($_DATA['searchterms']['area']) ? "opened" : "") ?>">
+ <span class="optionBlock <?=(isset($_DATA['searchterms']['postcode']) ? "opened" : "") ?>">
 		<button class="deleteMe">X</button>
-		<label for="searchPostcode">Postcode or Area</label>
-		<input type="text" id="searchPostcode" placeholder="area" name="area" value="<?=(isset($_DATA['searchterms']['area']) ? $_DATA['searchterms']['area'] : "") ?>">
-		or
+		<label for="searchPostcode">Postcode</label>
+	<!--	<input type="text" id="searchPostcode" placeholder="area" name="area" value="<?=(isset($_DATA['searchterms']['area']) ? $_DATA['searchterms']['area'] : "") ?>">
+		or -->
 		<input type="text" id="searchPostcode2" placeholder="Postcode" name="postcode" value="<?=(isset($_DATA['searchterms']['postcode']) ? $_DATA['searchterms']['postcode'] : "") ?>">
 		</span>
 
@@ -160,5 +160,6 @@
 
  <span class="optionBlock">
 		<button id="searchParams">Search with these options</button>
+		<button id="searchClear">Clear search terms</button>
 	</div>
 </div>
